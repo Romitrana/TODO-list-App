@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(166, 84, 243);
+}
+.container {
+  background-color: aqua;
+  padding: 20px 10px;
+  width: 700px;
+  height: 600px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  margin: 0 5px 0 5px;
+}
+.container img {
+  height: 3.5rem;
+  display: block;
+  margin: auto;
+}
+/*.....input system...*/
+.todo-input {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1.5rem;
+  margin: 30px 20px 10px 20px;
+}
+.todo-input input {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.3em;
+  color: #5a6793;
+  padding: 0.3em 1.5em;
+  font-weight: 200;
+  border: none;
+  border-radius: 5px;
+  border-bottom: 3px solid rgb(166, 84, 243);
+  background: none;
+}
+.todo-input input:focus {
+  outline: none;
+}
+.todo-input input::placeholder {
+  opacity: 0.9;
+}
+.todo-input .search-btn {
+  border: none;
+  background-color: rgb(166, 84, 243);
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 1.4em;
+  font-weight: 800;
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.4);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  letter-spacing: 1.5px;
+}
+
+.todo-input .search-btn .fa-circle-plus {
+  margin-right: 5px;
+}
+
+/*   todo lists  */
+.todo_bar {
+  width: auto;
+  background-color: rgb(166, 84, 243);
+  height: 3.5rem;
+  border-radius: 50px;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+  gap: 30px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  position: relative;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+  white-space: nowrap; /* USE WHEN YOU NEED TO SHOW TEXT ONE DIRECTION ONLY*/
+  overflow-x: scroll;
+}
+.todo_bar h2 {
+  padding: 8px 0 8px 4px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 200;
+  color: #ffffff;
+}
+.todo-wrapper {
+  width: auto;
+  background-color: white;
+  height: 420px;
+  padding: 20px 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  overflow: auto;
+  position: relative;
+}
+.todo_bar span {
+  width: 40px;
+  height: 40px;
+  margin: 4px 0 4px 60px;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  border-radius: 50%;
+  position: absolute;
+  visibility: hidden;
+}
+.todo_bar:hover > .delete {
+  visibility: visible;
+  right: 7px;
+  top: 7px;
+  position: sticky;
+}
+.todo_bar:hover {
+  height: 3.8em;
+  transition: all 0.1s ease-in;
+  background-color: rgb(144, 30, 250);
+}
+.delete:hover {
+  background-color: rgb(236, 38, 38);
+  color: antiquewhite;
+  transition: background 0.5s ease-in-out;
+}
+
+.delete,
+.search-btn:hover {
+  cursor: pointer;
+}
+.search-btn:hover {
+  background-color: rgb(144, 30, 250);
+}
+
+/*creating overlay*/
+.todo-wrapper::before {
+  content: "";
+  background: url(/86a31126-7879-4283-9b92-f229b4748e84.png) no-repeat center
+    center/cover;
+  width: 450px;
+  height: 400px;
+  position: fixed;
+  transform: translate(25%);
+  opacity: 0.3;
+}
+.todo-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.todo_bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* madia query  300<=screen-size<=750*/
+@media (min-width: 300px) and (max-width: 750px) {
+  .container {
+    background-color: aqua;
+    width: 400px;
+    height: 600px;
+  }
+  .todo-wrapper::before {
+    width: 300px;
+    height: 400px;
+    transform: translate(15%);
+  }
+}
